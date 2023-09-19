@@ -21,15 +21,15 @@ class _MyAppState extends State<MyApp> {
 
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
-        final FacebookAccessToken accessToken = result.accessToken;
+        final FacebookAccessToken? accessToken = result.accessToken;
         _showMessage('''
          Logged in!
          
-         Token: ${accessToken.token}
-         User id: ${accessToken.userId}
-         Expires: ${accessToken.expires}
-         Permissions: ${accessToken.permissions}
-         Declined permissions: ${accessToken.declinedPermissions}
+         Token: ${accessToken?.token}
+         User id: ${accessToken?.userId}
+         Expires: ${accessToken?.expires}
+         Permissions: ${accessToken?.permissions}
+         Declined permissions: ${accessToken?.declinedPermissions}
          ''');
         break;
       case FacebookLoginStatus.cancelledByUser:
@@ -65,11 +65,11 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Text(_message),
-              new RaisedButton(
+              new ElevatedButton(
                 onPressed: _login,
                 child: new Text('Log in'),
               ),
-              new RaisedButton(
+              new ElevatedButton(
                 onPressed: _logOut,
                 child: new Text('Logout'),
               ),
