@@ -82,6 +82,7 @@ class FacebookLogin {
   ///
   /// NOTE: This might return an access token that has expired. If you need to be
   /// sure that the token is still valid, call [isValid] on the access token.
+  /// abdel
   Future<FacebookAccessToken> get currentAccessToken async {
     final Map<dynamic, dynamic> accessToken =
         await channel.invokeMethod('getCurrentAccessToken');
